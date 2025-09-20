@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdBlocker Pro - Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 450px;
+            padding: 30px;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .logo h1 {
+            color: #1a2a6c;
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        
+        .logo p {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus {
+            border-color: #1a2a6c;
+            outline: none;
+        }
+        
+        .password-rules {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 5px;
+            font-size: 13px;
+        }
+        
+        .password-rules ul {
+            list-style-type: none;
+            padding-left: 5px;
+        }
+        
+        .password-rules li {
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .rule-met {
+            color: #2ecc71;
+        }
+        
+        .rule-not-met {
+            color: #e74c3c;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-group input {
+            margin-right: 10px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+        
+        .login-link {
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+        }
+        
+        .login-link a {
+            color: #1a2a6c;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+        
+        .feature-list {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        
+        .feature-list h3 {
+            margin-bottom: 15px;
+            color: #1a2a6c;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        
+        .feature-icon {
+            width: 30px;
+            height: 30px;
+            background-color: #1a2a6c;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 10px;
+            color: white;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <h1>AdBlocker Pro</h1>
+            <p>Advanced ad blocking technology</p>
+        </div>
+        
+        <form id="signup-form">
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Create a strong password" required>
+                
+                <div class="password-rules">
+                    <p>Password must meet the following criteria:</p>
+                    <ul>
+                        <li id="length-rule" class="rule-not-met">✓ At least 8 characters long</li>
+                        <li id="uppercase-rule" class="rule-not-met">✓ Contains uppercase letters</li>
+                        <li id="lowercase-rule" class="rule-not-met">✓ Contains lowercase letters</li>
+                        <li id="number-rule" class="rule-not-met">✓ Contains numbers</li>
+                        <li id="special-rule" class="rule-not-met">✓ Contains special characters</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+            </div>
+            
+            <div class="checkbox-group">
+                <input type="checkbox" id="terms" required>
+                <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+            </div>
+            
+            <button type="submit">Sign Up</button>
+        </form>
+        
+        <div class="login-link">
+            Already have an account? <a href="#">Log In</a>
+        </div>
+        
+        <div class="feature-list">
+            <h3>Why AdBlocker Pro?</h3>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>Blocks all types of ads including pop-ups, banners, and video ads</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>Works on all websites without breaking functionality</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>Faster browsing experience with fewer distractions</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>Enhanced privacy protection</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            const form = document.getElementById('signup-form');
+            
+            // Password validation rules
+            const rules = {
+                length: { regex: /.{8,}/, element: document.getElementById('length-rule') },
+                uppercase: { regex: /[A-Z]/, element: document.getElementById('uppercase-rule') },
+                lowercase: { regex: /[a-z]/, element: document.getElementById('lowercase-rule') },
+                number: { regex: /[0-9]/, element: document.getElementById('number-rule') },
+                special: { regex: /[^A-Za-z0-9]/, element: document.getElementById('special-rule') }
+            };
+            
+            // Validate password as user types
+            passwordInput.addEventListener('input', function() {
+                const password = passwordInput.value;
+                
+                // Check each rule
+                for (const [rule, data] of Object.entries(rules)) {
+                    if (data.regex.test(password)) {
+                        data.element.classList.add('rule-met');
+                        data.element.classList.remove('rule-not-met');
+                    } else {
+                        data.element.classList.add('rule-not-met');
+                        data.element.classList.remove('rule-met');
+                    }
+                }
+                
+                // Validate password confirmation
+                validatePasswordConfirmation();
+            });
+            
+            // Validate password confirmation
+            confirmPasswordInput.addEventListener('input', validatePasswordConfirmation);
+            
+            function validatePasswordConfirmation() {
+                if (confirmPasswordInput.value !== passwordInput.value) {
+                    confirmPasswordInput.style.borderColor = '#e74c3c';
+                } else {
+                    confirmPasswordInput.style.borderColor = '#2ecc71';
+                }
+            }
+            
+            // Form submission
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Check if all password rules are met
+                const password = passwordInput.value;
+                let allRulesMet = true;
+                
+                for (const [rule, data] of Object.entries(rules)) {
+                    if (!data.regex.test(password)) {
+                        allRulesMet = false;
+                        break;
+                    }
+                }
+                
+                // Check if passwords match
+                if (password !== confirmPasswordInput.value) {
+                    alert('Passwords do not match!');
+                    return;
+                }
+                
+                if (allRulesMet) {
+                    alert('Sign up successful! AdBlocker Pro is now active.');
+                    // In a real implementation, this would connect to a backend
+                    // and activate the ad blocker functionality
+                } else {
+                    alert('Please ensure your password meets all requirements.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
