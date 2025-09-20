@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdBlocker Pro - Sign Up</title>
+    <title>Dem Shopping - Everything Free!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,314 +14,1107 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            background-color: #f0f2f5;
+            color: #1a1a1a;
+            transition: all 0.3s ease;
         }
         
-        .container {
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            width: 100%;
-            max-width: 450px;
-            padding: 30px;
+        body.dark-theme {
+            background-color: #1a1a1a;
+            color: #f0f2f5;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #232f3e;
+            color: white;
+            padding: 10px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .dark-theme header {
+            background-color: #0f141c;
+        }
+        
+        .header-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 10px;
         }
         
         .logo {
-            text-align: center;
-            margin-bottom: 25px;
-        }
-        
-        .logo h1 {
-            color: #1a2a6c;
             font-size: 28px;
-            margin-bottom: 5px;
+            font-weight: bold;
+            color: #ff9900;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
         }
         
-        .logo p {
-            color: #666;
+        .logo i {
+            margin-right: 8px;
+        }
+        
+        .search-bar {
+            display: flex;
+            flex: 1;
+            max-width: 700px;
+            margin: 0 20px;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+        
+        .search-bar button {
+            padding: 10px 15px;
+            background: #ff9900;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+        }
+        
+        .header-nav {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        
+        .nav-item span:first-child {
+            font-size: 12px;
+        }
+        
+        .nav-item span:last-child {
             font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .cart {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+        
+        .header-bottom {
+            display: flex;
+            gap: 15px;
+            padding: 8px 0;
+            overflow-x: auto;
+        }
+        
+        .header-bottom a {
+            color: white;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 300px;
+            background: linear-gradient(to right, #232f3e, #ff9900);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .dark-theme .hero {
+            background: linear-gradient(to right, #0f141c, #cc7a00);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 20px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #ff9900;
+            display: inline-block;
+        }
+        
+        .dark-theme .section-title {
+            color: #f0f2f5;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .dark-theme .product-card {
+            background: #2d3748;
+            color: #f0f2f5;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            width: 100%;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .dark-theme .product-image {
+            background-color: #4a5568;
+        }
+        
+        .product-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            height: 40px;
+            overflow: hidden;
+        }
+        
+        .product-price {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-price.free {
+            color: #27ae60;
+        }
+        
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .btn-primary {
+            background: #ff9900;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #e68a00;
+        }
+        
+        .btn-secondary {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #2980b9;
+        }
+        
+        /* Footer */
+        footer {
+            background: #232f3e;
+            color: white;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+        
+        .dark-theme footer {
+            background: #0f141c;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 15px;
+            color: #ff9900;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #ff9900;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #3a4553;
+        }
+        
+        /* Settings Panel */
+        .settings-panel {
+            position: fixed;
+            right: -300px;
+            top: 0;
+            width: 300px;
+            height: 100vh;
+            background: white;
+            box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+            transition: right 0.3s ease;
+            z-index: 1000;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        
+        .dark-theme .settings-panel {
+            background: #2d3748;
+            color: #f0f2f5;
+        }
+        
+        .settings-panel.open {
+            right: 0;
+        }
+        
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dark-theme .settings-header {
+            border-bottom: 1px solid #4a5568;
+        }
+        
+        .close-settings {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: inherit;
+        }
+        
+        .settings-option {
+            margin-bottom: 15px;
+        }
+        
+        .settings-option h4 {
+            margin-bottom: 8px;
+        }
+        
+        .theme-selector {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .theme {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+        
+        .theme.active {
+            border: 2px solid #ff9900;
+        }
+        
+        .theme.default {
+            background: #232f3e;
+        }
+        
+        .theme.dark {
+            background: #1a1a1a;
+        }
+        
+        .theme.light {
+            background: #f0f2f5;
+            border: 1px solid #ccc;
+        }
+        
+        .theme.blue {
+            background: #3498db;
+        }
+        
+        /* Checkout Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        
+        .dark-theme .modal-content {
+            background: #2d3748;
+            color: #f0f2f5;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dark-theme .modal-header {
+            border-bottom: 1px solid #4a5568;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: inherit;
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .form-group input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 16px;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus {
-            border-color: #1a2a6c;
-            outline: none;
-        }
-        
-        .password-rules {
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 5px;
-            font-size: 13px;
-        }
-        
-        .password-rules ul {
-            list-style-type: none;
-            padding-left: 5px;
-        }
-        
-        .password-rules li {
             margin-bottom: 5px;
-            display: flex;
-            align-items: center;
+            font-weight: 600;
         }
         
-        .rule-met {
-            color: #2ecc71;
-        }
-        
-        .rule-not-met {
-            color: #e74c3c;
-        }
-        
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .checkbox-group input {
-            margin-right: 10px;
-        }
-        
-        button {
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 14px;
-            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            color: #1a1a1a;
+        }
+        
+        .dark-theme .form-group input,
+        .dark-theme .form-group textarea,
+        .dark-theme .form-group select {
+            background: #4a5568;
+            border-color: #2d3748;
+            color: #f0f2f5;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            background: #27ae60;
             color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s, opacity 0.2s;
+            border-radius: 4px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            z-index: 1002;
         }
         
-        button:hover {
-            transform: translateY(-2px);
-            opacity: 0.95;
-        }
-        
-        .login-link {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-        }
-        
-        .login-link a {
-            color: #1a2a6c;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        
-        .login-link a:hover {
-            text-decoration: underline;
-        }
-        
-        .feature-list {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-        }
-        
-        .feature-list h3 {
-            margin-bottom: 15px;
-            color: #1a2a6c;
-        }
-        
-        .feature {
-            display: flex;
-            align-items: center;
-            margin-bottom: 12px;
-        }
-        
-        .feature-icon {
-            width: 30px;
-            height: 30px;
-            background-color: #1a2a6c;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 10px;
-            color: white;
-            font-weight: bold;
-        }
-        
-        @media (max-width: 480px) {
-            .container {
-                padding: 20px;
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-wrap: wrap;
+            }
+            
+            .search-bar {
+                order: 3;
+                margin: 10px 0;
+                max-width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .header-nav {
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="logo">
-            <h1>AdBlocker Pro</h1>
-            <p>Advanced ad blocking technology</p>
-        </div>
-        
-        <form id="signup-form">
-            <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="Enter your email" required>
+    <!-- Header Section -->
+    <header>
+        <div class="header-top">
+            <a href="#" class="logo">
+                <i class="fas fa-shopping-bag"></i>
+                Dem Shopping
+            </a>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Search for anything...">
+                <button><i class="fas fa-search"></i></button>
             </div>
             
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Create a strong password" required>
+            <div class="header-nav">
+                <div class="nav-item" onclick="openSettings()">
+                    <span>Hello, User</span>
+                    <span>Account & Settings</span>
+                </div>
                 
-                <div class="password-rules">
-                    <p>Password must meet the following criteria:</p>
-                    <ul>
-                        <li id="length-rule" class="rule-not-met">✓ At least 8 characters long</li>
-                        <li id="uppercase-rule" class="rule-not-met">✓ Contains uppercase letters</li>
-                        <li id="lowercase-rule" class="rule-not-met">✓ Contains lowercase letters</li>
-                        <li id="number-rule" class="rule-not-met">✓ Contains numbers</li>
-                        <li id="special-rule" class="rule-not-met">✓ Contains special characters</li>
-                    </ul>
+                <div class="nav-item" onclick="showOrders()">
+                    <span>Returns</span>
+                    <span>& Orders</span>
+                </div>
+                
+                <div class="cart" onclick="viewCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cart-count">Cart (0)</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-bottom">
+            <a href="#" onclick="showCategory('all')">All</a>
+            <a href="#" onclick="showCategory('deals')">Today's Deals</a>
+            <a href="#" onclick="showCategory('electronics')">Electronics</a>
+            <a href="#" onclick="showCategory('books')">Books</a>
+            <a href="#" onclick="showCategory('fashion')">Fashion</a>
+            <a href="#" onclick="showCategory('home')">Home & Kitchen</a>
+            <a href="#" onclick="showCategory('sports')">Sports</a>
+            <a href="#" onclick="showCategory('beauty')">Beauty</a>
+            <a href="#" onclick="showCategory('food')">Food</a>
+            <a href="#" onclick="showCategory('health')">Health</a>
+            <a href="#" onclick="showCategory('toys')">Toys</a>
+            <a href="#" onclick="showCategory('garden')">Garden</a>
+        </div>
+    </header>
+    
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Everything is FREE at Dem Shopping!</h1>
+        <p>Yes, you read that right. Every product on our platform is completely free. No hidden charges, no fees.</p>
+    </div>
+    
+    <!-- Featured Products -->
+    <section class="products">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x200/3498db/ffffff?text=Smartphone" alt="Smartphone">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Latest Smartphone - 128GB Storage</div>
+                    <div class="product-price free">FREE</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart('Smartphone')">Add to Cart</button>
+                        <button class="btn btn-secondary" onclick="showProductDetails('Smartphone')">Details</button>
+                    </div>
                 </div>
             </div>
             
-            <div class="form-group">
-                <label for="confirm-password">Confirm Password</label>
-                <input type="password" id="confirm-password" placeholder="Confirm your password" required>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x200/e74c3c/ffffff?text=Headphones" alt="Headphones">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Wireless Noise-Cancelling Headphones</div>
+                    <div class="product-price free">FREE</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart('Headphones')">Add to Cart</button>
+                        <button class="btn btn-secondary" onclick="showProductDetails('Headphones')">Details</button>
+                    </div>
+                </div>
             </div>
             
-            <div class="checkbox-group">
-                <input type="checkbox" id="terms" required>
-                <label for="terms">I agree to the Terms of Service and Privacy Policy</label>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x200/2ecc71/ffffff?text=Laptop" alt="Laptop">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Ultra-Thin Laptop - 15.6" Display</div>
+                    <div class="product-price free">FREE</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart('Laptop')">Add to Cart</button>
+                        <button class="btn btn-secondary" onclick="showProductDetails('Laptop')">Details</button>
+                    </div>
+                </div>
             </div>
             
-            <button type="submit">Sign Up</button>
-        </form>
-        
-        <div class="login-link">
-            Already have an account? <a href="#">Log In</a>
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x200/9b59b6/ffffff?text=Smart+Watch" alt="Smart Watch">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Smart Watch with Fitness Tracking</div>
+                    <div class="product-price free">FREE</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart('Smart Watch')">Add to Cart</button>
+                        <button class="btn btn-secondary" onclick="showProductDetails('Smart Watch')">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Popular Products -->
+    <section class="products">
+        <h2 class="section-title">Popular Right Now</h2>
+        <div class="product-grid">
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x200/f39c12/ffffff?text=Gaming+Console" alt="Gaming Console">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Next-Gen Gaming Console</div>
+                    <div class="product-price free">FREE</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart('Gaming Console')">Add to Cart</button>
+                        <button class="btn btn-secondary" onclick="showProductDetails('Gaming Console')">Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x200/34495e/ffffff?text=Camera" alt="Camera">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">4K Digital Camera with Accessories</div>
+                    <div class="product-price free">FREE</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart('Camera')">Add to Cart</button>
+                        <button class="btn btn-secondary" onclick="showProductDetails('Camera')">Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 7 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x200/16a085/ffffff?text=Books" alt="Books">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Bestselling Book Collection (Set of 12)</div>
+                    <div class="product-price free">FREE</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart('Book Collection')">Add to Cart</button>
+                        <button class="btn btn-secondary" onclick="showProductDetails('Book Collection')">Details</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 8 -->
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://via.placeholder.com/250x200/d35400/ffffff?text=Home+Speaker" alt="Home Speaker">
+                </div>
+                <div class="product-info">
+                    <div class="product-title">Wireless Home Speaker System</div>
+                    <div class="product-price free">FREE</div>
+                    <div class="product-actions">
+                        <button class="btn btn-primary" onclick="addToCart('Speaker System')">Add to Cart</button>
+                        <button class="btn btn-secondary" onclick="showProductDetails('Speaker System')">Details</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Get to Know Us</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('careers')">Careers</a></li>
+                    <li><a href="#" onclick="showPage('about')">About Dem Shopping</a></li>
+                    <li><a href="#" onclick="showPage('investor')">Investor Relations</a></li>
+                    <li><a href="#" onclick="showPage('partners')">Advantage Partners</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Make Money with Us</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('sell')">Sell on Dem Shopping</a></li>
+                    <li><a href="#" onclick="showPage('affiliate')">Become an Affiliate</a></li>
+                    <li><a href="#" onclick="showPage('advertise')">Advertise Your Products</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#" onclick="openSettings()">Your Account</a></li>
+                    <li><a href="#" onclick="showOrders()">Your Orders</a></li>
+                    <li><a href="#" onclick="showPage('shipping')">Shipping Rates & Policies</a></li>
+                    <li><a href="#" onclick="showPage('returns')">Returns & Replacements</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Let Us Help You</h3>
+                <ul>
+                    <li><a href="#" onclick="showPage('help')">Help Center</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Contact Us</a></li>
+                    <li><a href="#" onclick="showPage('sitemap')">Site Map</a></li>
+                </ul>
+            </div>
         </div>
         
-        <div class="feature-list">
-            <h3>Why AdBlocker Pro?</h3>
-            <div class="feature">
-                <div class="feature-icon">✓</div>
-                <div>Blocks all types of ads including pop-ups, banners, and video ads</div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Dem Shopping. All rights reserved. Everything is free!</p>
+        </div>
+    </footer>
+    
+    <!-- Settings Panel -->
+    <div class="settings-panel" id="settingsPanel">
+        <div class="settings-header">
+            <h3>Account & Settings</h3>
+            <button class="close-settings" onclick="closeSettings()">&times;</button>
+        </div>
+        
+        <div class="settings-option">
+            <h4>Account Information</h4>
+            <p>Name: Demo User</p>
+            <p>Email: user@demshopping.com</p>
+        </div>
+        
+        <div class="settings-option">
+            <h4>Theme</h4>
+            <p>Change the appearance of Dem Shopping</p>
+            <div class="theme-selector">
+                <div class="theme default active" title="Default Theme" onclick="changeTheme('default')"></div>
+                <div class="theme dark" title="Dark Mode" onclick="changeTheme('dark')"></div>
+                <div class="theme light" title="Light Mode" onclick="changeTheme('light')"></div>
+                <div class="theme blue" title="Blue Theme" onclick="changeTheme('blue')"></div>
             </div>
-            <div class="feature">
-                <div class="feature-icon">✓</div>
-                <div>Works on all websites without breaking functionality</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">✓</div>
-                <div>Faster browsing experience with fewer distractions</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">✓</div>
-                <div>Enhanced privacy protection</div>
-            </div>
+        </div>
+        
+        <div class="settings-option">
+            <h4>Language</h4>
+            <select id="language-select">
+                <option>English</option>
+                <option>Spanish</option>
+                <option>French</option>
+                <option>German</option>
+            </select>
+        </div>
+        
+        <div class="settings-option">
+            <h4>Notifications</h4>
+            <label>
+                <input type="checkbox" checked id="email-notifications"> Email Notifications
+            </label>
+            <br>
+            <label>
+                <input type="checkbox" checked id="browser-notifications"> Browser Notifications
+            </label>
+        </div>
+        
+        <div class="settings-option">
+            <h4>Privacy</h4>
+            <p>Manage your privacy settings</p>
+            <button class="btn btn-primary" onclick="showPage('privacy')">Privacy Dashboard</button>
         </div>
     </div>
-
+    
+    <!-- Checkout Modal -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Checkout</h3>
+                <button class="close-modal" onclick="closeModal('checkout-modal')">&times;</button>
+            </div>
+            
+            <form id="checkout-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Shipping Address</label>
+                    <textarea id="address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="city">City</label>
+                    <input type="text" id="city" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="zip">ZIP Code</label>
+                    <input type="text" id="zip" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country" required>
+                        <option value="">Select Country</option>
+                        <option value="usa">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">Australia</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-block">Complete Order</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Cart Modal -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Your Shopping Cart</h3>
+                <button class="close-modal" onclick="closeModal('cart-modal')">&times;</button>
+            </div>
+            
+            <div id="cart-items">
+                <p>Your cart is empty.</p>
+            </div>
+            
+            <div id="cart-total">
+                <h4>Total: FREE</h4>
+            </div>
+            
+            <button class="btn btn-primary btn-block" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </div>
+    
+    <!-- Product Details Modal -->
+    <div class="modal" id="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="product-modal-title">Product Details</h3>
+                <button class="close-modal" onclick="closeModal('product-modal')">&times;</button>
+            </div>
+            
+            <div id="product-modal-content">
+                <p>Product details loading...</p>
+            </div>
+            
+            <button class="btn btn-primary btn-block" onclick="addToCartFromModal()">Add to Cart</button>
+        </div>
+    </div>
+    
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <span id="notification-text">Operation completed successfully!</span>
+    </div>
+    
     <script>
+        // Global variables
+        let cartItems = [];
+        let currentTheme = 'default';
+        let currentProduct = '';
+        
+        // DOM Ready
         document.addEventListener('DOMContentLoaded', function() {
-            const passwordInput = document.getElementById('password');
-            const confirmPasswordInput = document.getElementById('confirm-password');
-            const form = document.getElementById('signup-form');
-            
-            // Password validation rules
-            const rules = {
-                length: { regex: /.{8,}/, element: document.getElementById('length-rule') },
-                uppercase: { regex: /[A-Z]/, element: document.getElementById('uppercase-rule') },
-                lowercase: { regex: /[a-z]/, element: document.getElementById('lowercase-rule') },
-                number: { regex: /[0-9]/, element: document.getElementById('number-rule') },
-                special: { regex: /[^A-Za-z0-9]/, element: document.getElementById('special-rule') }
-            };
-            
-            // Validate password as user types
-            passwordInput.addEventListener('input', function() {
-                const password = passwordInput.value;
-                
-                // Check each rule
-                for (const [rule, data] of Object.entries(rules)) {
-                    if (data.regex.test(password)) {
-                        data.element.classList.add('rule-met');
-                        data.element.classList.remove('rule-not-met');
-                    } else {
-                        data.element.classList.add('rule-not-met');
-                        data.element.classList.remove('rule-met');
-                    }
+            // Initialize search functionality
+            const searchButton = document.querySelector('.search-bar button');
+            searchButton.addEventListener('click', function() {
+                const searchTerm = document.querySelector('.search-bar input').value;
+                if (searchTerm) {
+                    showNotification(`Searching for: "${searchTerm}" - All results are free!`);
                 }
-                
-                // Validate password confirmation
-                validatePasswordConfirmation();
             });
             
-            // Validate password confirmation
-            confirmPasswordInput.addEventListener('input', validatePasswordConfirmation);
-            
-            function validatePasswordConfirmation() {
-                if (confirmPasswordInput.value !== passwordInput.value) {
-                    confirmPasswordInput.style.borderColor = '#e74c3c';
-                } else {
-                    confirmPasswordInput.style.borderColor = '#2ecc71';
+            // Allow pressing Enter to search
+            const searchInput = document.querySelector('.search-bar input');
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchButton.click();
                 }
-            }
+            });
             
-            // Form submission
-            form.addEventListener('submit', function(e) {
+            // Setup form submission
+            document.getElementById('checkout-form').addEventListener('submit', function(e) {
                 e.preventDefault();
-                
-                // Check if all password rules are met
-                const password = passwordInput.value;
-                let allRulesMet = true;
-                
-                for (const [rule, data] of Object.entries(rules)) {
-                    if (!data.regex.test(password)) {
-                        allRulesMet = false;
-                        break;
-                    }
-                }
-                
-                // Check if passwords match
-                if (password !== confirmPasswordInput.value) {
-                    alert('Passwords do not match!');
-                    return;
-                }
-                
-                if (allRulesMet) {
-                    alert('Sign up successful! AdBlocker Pro is now active.');
-                    // In a real implementation, this would connect to a backend
-                    // and activate the ad blocker functionality
-                } else {
-                    alert('Please ensure your password meets all requirements.');
-                }
+                processOrder();
             });
         });
+        
+        // Settings Panel functionality
+        function openSettings() {
+            document.getElementById('settingsPanel').classList.add('open');
+        }
+        
+        function closeSettings() {
+            document.getElementById('settingsPanel').classList.remove('open');
+        }
+        
+        // Theme functionality
+        function changeTheme(theme) {
+            document.body.classList.remove('dark-theme');
+            document.querySelectorAll('.theme').forEach(t => t.classList.remove('active'));
+            
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            }
+            
+            document.querySelector(`.theme.${theme}`).classList.add('active');
+            currentTheme = theme;
+            showNotification(`Theme changed to ${theme} mode`);
+        }
+        
+        // Modal functionality
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        
+        // Cart functionality
+        function addToCart(productName) {
+            cartItems.push(productName);
+            updateCartCount();
+            showNotification(`"${productName}" added to cart!`);
+        }
+        
+        function addToCartFromModal() {
+            if (currentProduct) {
+                addToCart(currentProduct);
+                closeModal('product-modal');
+            }
+        }
+        
+        function updateCartCount() {
+            document.getElementById('cart-count').textContent = `Cart (${cartItems.length})`;
+            updateCartItems();
+        }
+        
+        function updateCartItems() {
+            const cartItemsElement = document.getElementById('cart-items');
+            
+            if (cartItems.length === 0) {
+                cartItemsElement.innerHTML = '<p>Your cart is empty.</p>';
+                return;
+            }
+            
+            let itemsHTML = '<ul>';
+            cartItems.forEach(item => {
+                itemsHTML += `<li>${item} - FREE</li>`;
+            });
+            itemsHTML += '</ul>';
+            
+            cartItemsElement.innerHTML = itemsHTML;
+        }
+        
+        function viewCart() {
+            updateCartItems();
+            openModal('cart-modal');
+        }
+        
+        function proceedToCheckout() {
+            if (cartItems.length === 0) {
+                showNotification('Your cart is empty. Add some items first!');
+                return;
+            }
+            
+            closeModal('cart-modal');
+            openModal('checkout-modal');
+        }
+        
+        // Order processing
+        function processOrder() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const city = document.getElementById('city').value;
+            const zip = document.getElementById('zip').value;
+            const country = document.getElementById('country').value;
+            
+            // Create order summary
+            const orderSummary = `
+                ORDER SUMMARY:
+                Name: ${name}
+                Email: ${email}
+                Address: ${address}
+                City: ${city}
+                ZIP: ${zip}
+                Country: ${country}
+                
+                ITEMS:
+                ${cartItems.map(item => `- ${item} (FREE)`).join('\n')}
+                
+                TOTAL: FREE
+            `;
+            
+            // Encode the order for URL
+            const encodedOrder = encodeURIComponent(orderSummary);
+            
+            // Redirect to Matrix with the order details
+            window.location.href = `https://matrix.to/#/@dem_studios123:matrix.org?text=${encodedOrder}`;
+            
+            // Show confirmation (though redirect will happen)
+            showNotification('Order processed! Redirecting to confirmation...');
+        }
+        
+        // Product details
+        function showProductDetails(productName) {
+            currentProduct = productName;
+            document.getElementById('product-modal-title').textContent = productName;
+            
+            const productDetails = {
+                'Smartphone': 'Latest smartphone with 128GB storage, 5G connectivity, and advanced camera system.',
+                'Headphones': 'Wireless noise-cancelling headphones with 30-hour battery life and premium sound quality.',
+                'Laptop': 'Ultra-thin laptop with 15.6" display, powerful processor, and all-day battery life.',
+                'Smart Watch': 'Smart watch with fitness tracking, heart rate monitoring, and smartphone integration.',
+                'Gaming Console': 'Next-gen gaming console with 4K gaming, immersive audio, and exclusive titles.',
+                'Camera': '4K digital camera with accessories including lens kit, tripod, and carrying case.',
+                'Book Collection': 'Set of 12 bestselling books across various genres from acclaimed authors.',
+                'Speaker System': 'Wireless home speaker system with surround sound and voice assistant integration.'
+            };
+            
+            document.getElementById('product-modal-content').innerHTML = `
+                <p>${productDetails[productName] || 'Premium quality product with full warranty.'}</p>
+                <p class="product-price free">FREE</p>
+                <p>All products on Dem Shopping are completely free of charge. No payment required.</p>
+            `;
+            
+            openModal('product-modal');
+        }
+        
+        // Navigation functions
+        function showCategory(category) {
+            showNotification(`Browsing ${category} category - all items are free!`);
+        }
+        
+        function showPage(page) {
+            const pageTitles = {
+                'careers': 'Careers at Dem Shopping',
+                'about': 'About Dem Shopping',
+                'investor': 'Investor Relations',
+                'partners': 'Advantage Partners',
+                'sell': 'Sell on Dem Shopping',
+                'affiliate': 'Become an Affiliate',
+                'advertise': 'Advertise Your Products',
+                'shipping': 'Shipping Information',
+                'returns': 'Returns Policy',
+                'help': 'Help Center',
+                'contact': 'Contact Us',
+                'sitemap': 'Site Map',
+                'privacy': 'Privacy Settings'
+            };
+            
+            showNotification(`Showing ${pageTitles[page] || page} page`);
+        }
+        
+        function showOrders() {
+            showNotification('Viewing your order history');
+        }
+        
+        // Notification system
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            document.getElementById('notification-text').textContent = message;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
     </script>
 </body>
 </html>
